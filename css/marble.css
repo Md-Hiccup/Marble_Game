@@ -1,0 +1,12 @@
+.center {
+    text-align: center;
+}
+
+.errormsg {
+    color: red;
+
+}
+.normalmsg {
+    color: lightgreen;
+
+}

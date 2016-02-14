@@ -7,13 +7,13 @@
 var table = document.createElement('table');
 var count = 0;
 var n;
-var move = 0;
 var oldEvt;
 table.setAttribute('id', 'table');
 table.setAttribute('border', 2);
 table.setAttribute('align', 'center');
 table.setAttribute('height', '440pt');
 table.setAttribute('width', '50%');
+
 var arr = [];
 
 function createTable() {
@@ -77,10 +77,17 @@ function modify(evt) {
             emptyMiddle(oldEvt, evt);
             arr.length = 0;
             console.log("Second Click" + evt.target.myId);
+            var msg = document.querySelector("#msg");
+            msg.classList.remove("errormsg");
+            msg.classList.add("normalmsg");
+            msg.innerHTML="Correct Move";
         }
         else {
             arr.length = 0;
-            alert("wrong click");
+            var msg = document.querySelector("#msg");
+            msg.classList.remove("normalmsg");
+            msg.classList.add("errormsg");
+            msg.innerHTML = "Wrong Move";
             console.log("second Click id Not Found");
         }
     }
@@ -192,7 +199,7 @@ function emptyMiddle(oldEvt, evt) {
                 fill(evt);
             }
             else {
-                alert("Choose correct box");
+                document.getElementById('msg').innerHTML = "Wrong Move";
             }
 
         }
@@ -205,7 +212,7 @@ function emptyMiddle(oldEvt, evt) {
                 fill(evt);
             }
             else {
-                alert("Choose correct box");
+                document.getElementById('msg').innerHTML = "Wrong Move";
             }
         }
     }
@@ -221,7 +228,7 @@ function emptyMiddle(oldEvt, evt) {
                 fill(evt);
             }
             else {
-                alert("Choose correct box");
+                document.getElementById('msg').innerHTML = "Wrong Move";
             }
         }
         //   up movement
@@ -234,7 +241,7 @@ function emptyMiddle(oldEvt, evt) {
                 fill(evt);
             }
             else {
-                alert("Choose correct box");
+                document.getElementById('msg').innerHTML = "Wrong Move";
             }
         }
     }
